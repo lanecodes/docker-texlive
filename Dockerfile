@@ -27,8 +27,11 @@ RUN echo "echo deb http://snapshot.debian.org/archive/debian/20200305T224751Z/ u
     apt-get install -qy --no-install-recommends graphviz inkscape && \
     # install texlive-full. The documentation ( texlive-latex-base-doc- texlive-latex-extra-doc- texlive-latex-recommended-doc-	texlive-metapost-doc- texlive-pictures-doc- texlive-pstricks-doc- texlive-publishers-doc- texlive-science-doc- texlive-fonts-extra-doc- texlive-fonts-recommended-doc- texlive-humanities-doc-) is also required
     apt-get install -qy --no-install-recommends texlive-full fonts-texgyre latexml xindy && \
+    # Clean up temporary files introduced by texlive to save space
+    apt-get clean -y
+
     # add support for pygments
-    apt-get install -qy python3-pygments python3-pip && \
+RUN apt-get install -qy python3-pygments python3-pip && \
     # fig2dev - tool for xfig to translate the figure to other formats
     apt-get install -qy fig2dev && \
     # add Google's Inconsolata font (https://fonts.google.com/specimen/Inconsolata)

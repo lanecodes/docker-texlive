@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Added support for [fig2dev](https://linux.die.net/man/1/fig2dev)
 - Added support for [pandoc](https://pandoc.org/)
 - Remove more space after installing debian packages
+- Run `apt-get clean` after installing `texlive-full` to prevent image growing
+  to be larger than 10 Gb during build. See notes in
+  `./notes/docker_space.ipynb`.
 
 ### Changed
 
